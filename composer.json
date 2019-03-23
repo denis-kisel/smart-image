@@ -1,5 +1,5 @@
 {
-    "name": "deniskisel/smartimage",
+    "name": "denis-kisel/smart-image",
     "description": ":description",
     "license": "MID",
     "authors": [
@@ -9,25 +9,11 @@
             "homepage": "digital-elephant.com.ua"
         }
     ],
-    "homepage": "https://github.com/deniskisel/smartimage",
+    "homepage": "https://github.com/denis-kisel/smart-image",
     "keywords": ["Laravel", "SmartImage"],
-    "require": {
-        "illuminate/support": "~5"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~7.0",
-        "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3.0",
-        "sempro/phpunit-pretty-print": "^1.0"
-    },
     "autoload": {
         "psr-4": {
             "DenisKisel\\SmartImage\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "DenisKisel\\SmartImage\\Tests\\": "tests"
         }
     },
     "extra": {
