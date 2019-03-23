@@ -8,5 +8,4 @@ use Illuminate\Support\ServiceProvider;
 
 class SmartImageServiceProvider extends ServiceProvider
 {
-
 }
