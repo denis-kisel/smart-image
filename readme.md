@@ -14,8 +14,12 @@ $ composer require denis-kisel/smart-image
 ```
 
 ## Usage
-``` bash
-$ SmartImage::cache('image.jpg', 200, 200); #will get storage/app/public/image.jpg
+```php
+<?php
+//Will get storage/app/public/image.jpg
+//And will put in the storage/app/public/image_cache/image-200x200.jpg
+//Return link on cache image: site.com/storage/image_cache/image-200x200.jpg
+SmartImage::cache('image.jpg', 200, 200); 
 ```
 
 
