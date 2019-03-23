@@ -14,7 +14,9 @@ $ composer require denis-kisel/smart-image
 ```
 
 ## Usage
-
+``` bash
+$ SmartImage::cache('image.jpg', 200, 200); #will get storage/app/public/image.jpg
+```
 
 
 ## Credits
