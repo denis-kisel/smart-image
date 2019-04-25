@@ -52,7 +52,7 @@ class SmartImage
     {
         $resizedName = self::name($image, $width, $height);
 
-        if (config('app.debug') || !Storage::exists('app/public/image_cache/' . $resizedName)) {
+        if (config('app.debug') || !file_exists(storage_path('app/public/image_cache/' . $resizedName))) {
 
             $sizes = getimagesize(storage_path('app/public/' . $image));
 
