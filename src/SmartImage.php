@@ -50,6 +50,10 @@ class SmartImage
 
     public static function cache($image, $width = null, $height = null)
     {
+        if (empty($image) || !file_exists(storage_path('app/public/' . $image))) {
+            return;
+        }
+
         $resizedName = self::name($image, $width, $height);
 
         if (config('app.debug') || !file_exists(storage_path('app/public/image_cache/' . $resizedName))) {
