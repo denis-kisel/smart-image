@@ -1,6 +1,7 @@
 {
     "name": "denis-kisel/smart-image",
     "description": "Image resize library on basic opencart image lib",
+    "license": "MIT",
     "authors": [
         {
             "name": "Denis Kisel",
