@@ -48,26 +48,25 @@ class SmartImage
         return $dir . '/' . $fileName . '-' . $width . 'x' . $height . $extension;
     }
 
-    public static function cache($image, $width = null, $height = null)
+    public static function cache($image, int $width = 0, int $height = 0)
     {
         if (empty($image) || !file_exists(storage_path('app/public/' . $image))) {
             return;
         }
 
+        $sizes = getimagesize(storage_path('app/public/' . $image));
+
+        if (empty($width)) {
+            $width = $sizes[0];
+        }
+
+        if (empty($height)) {
+            $height = $sizes[1];
+        }
+
         $resizedName = self::name($image, $width, $height);
 
         if (config('app.debug') || !file_exists(storage_path('app/public/image_cache/' . $resizedName))) {
-
-            $sizes = getimagesize(storage_path('app/public/' . $image));
-
-            if (is_null($width)) {
-                $width = $sizes[0];
-            }
-
-            if (is_null($height)) {
-                $height = $sizes[1];
-            }
-
             $imageLib = new SmartImage($image);
             $imageLib->resize($width, $height);
             $imageLib->save($resizedName);
@@ -114,7 +113,7 @@ class SmartImage
 
         if (!is_dir($info['dirname'])) {
             $newDir = $info['dirname'];
-            shell_exec("mkdir -p $newDir");
+            mkdir($newDir, 0775, true);
         }
 
 
@@ -133,15 +132,11 @@ class SmartImage
         }
     }
 
-    public function resize($width = 0, $height = 0, $default = '')
+    public function resize(int $width = 0, int $height = 0, $default = '')
     {
         if (!$this->width || !$this->height) {
             return;
         }
-
-        $xpos = 0;
-        $ypos = 0;
-        $scale = 1;
 
         $scale_w = $width / $this->width;
         $scale_h = $height / $this->height;
